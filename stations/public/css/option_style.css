@@ -1,0 +1,118 @@
+/* Custom Styles for Buttons and Layout */
+body {
+    /* Add Background Image */
+    background-image: url('/images/option.jpg'); /* Replace with your image path */
+    background-size: cover; /* Ensure the image covers the full area */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Avoid repeating */
+    background-attachment: fixed; /* Keep image fixed during scroll */
+
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex; /* Apply Flexbox on body */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Take full viewport height */
+    flex-direction: column; /* Align content vertically */
+}
+
+/* Heading Styling */
+h1 {
+    color: #071525;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+}
+
+/* Button Styles */
+button {
+    position: relative; /* For pseudo-element positioning */
+    padding: 12px 24px;  /* Reduced padding */
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 0.3s ease; /* Smooth text color change */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Hide pseudo-element overflow */
+    color: white; /* Default text color */
+    background-color: #3b82f6; /* Default button color */
+}
+
+/* Pseudo-element for hover effect */
+button::before {
+
+    content: "click-me"; /* Empty content for pseudo-element */
+    position: absolute; /* Positioned relative to button */
+    top: 0; /* Start from top */
+    left: -100%; /* Start outside the left boundary */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: #f19706; /* Hover background color */
+    z-index: 0; /* Behind the button content */
+    transition: all 0.5s ease; /* Smooth sliding effect */
+
+
+}
+
+
+
+/* Hover Effect */
+button:hover::before {
+    left: 0; /* Slide the background into view */
+}
+
+/* Ensure text appears on top of the sliding background */
+button:hover {
+    color: white; /* Text color during hover */
+}
+
+/* Keep text and content above pseudo-element */
+button span {
+    position: relative;
+    z-index: 1; /* Ensure text stays above the background */
+}
+
+/* Fuel Button */
+#findFuelStations {
+    background-color: #3b82f6; /* Tailwind Blue */
+    color: white;
+}
+
+#findFuelStations:hover {
+    background-color: #f19706; /* Darker Blue */
+}
+
+/* EV Button */
+#findEVStations {
+    background-color: #10b981; /* Tailwind Green */
+    color: white;
+}
+
+#findEVStations:hover {
+    background-color: #f19706; /* Darker Green */
+}
+
+/* Layout Centering */
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* Use full height of body */
+    text-align: center;
+    gap: 16px; /* Add space between buttons */
+    background: rgba(255, 255, 255, 0.8); /* Optional: Add transparency for contrast */
+    padding: 16px; /* Add spacing inside container */
+    border-radius: 12px; /* Optional: Round container edges */
+}
+
+/* Button Spacing */
+button:not(:last-child) {
+    margin-bottom: 16px; /* Add space between buttons */
+}

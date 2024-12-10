@@ -1,0 +1,121 @@
+/* Background Image for the Page */
+body {
+    background: url('/images/fuel.jpg') no-repeat center center fixed;
+
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+/* Blurring Effect */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: inherit;
+    background-size: inherit;
+    background-position: inherit;
+    filter: blur(5px); /* Adjust blur intensity */
+    z-index: -1; /* Place behind the content */
+}
+
+header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    margin: 0;
+    color: #f19706;
+}
+
+header p {
+    font-size: 16px;
+    color: #277FCA;
+    margin: 5px 0 0;
+}
+
+/* Map Container */
+#map-container {
+    position: relative;
+    perspective: 1000px;
+    width: 70%;
+    height: 100%;
+    /* max-width: 800px; */
+    margin: 40px auto;
+
+
+}
+
+/* Flip Card Styles */
+.flip-card {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+}
+
+.flip-card.show-table {
+    transform: rotateY(180deg);
+}
+
+/* Front Side (Map) */
+.flip-card .front {
+    position: absolute;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+/* Back Side (Table) */
+.flip-card .back {
+    position: absolute;
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    transform: rotateY(180deg);
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    overflow-y: auto;
+}
+
+/* flip Button Styles */
+#flip-button {
+    /* margin-top: 10px; */
+    margin-bottom: 20px;
+    padding: 10px 20px;
+    background-color: #277FCA;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#flip-button:hover {
+    background-color: #f19706;
+}
+
+
+.home-button {
+    position: absolute;
+    top: 1rem;        /* Distance from the top */
+    left: 1rem;       /* Distance from the left */
+    background-color: #277FCA; /* Tailwind blue-500 color */
+    color: white;
+    padding: 0.5rem 1rem;  /* Vertical and Horizontal padding */
+    border-radius: 0.375rem; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for 3D effect */
+    text-decoration: none;  /* Removes underline */
+    font-weight: bold;     /* Bold text */
+    font-size: 1rem;       /* Font size */
+    transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.home-button:hover {
+    background-color: #f19706; /* Darker shade of blue on hover */
+}
+
