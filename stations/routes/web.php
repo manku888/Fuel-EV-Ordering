@@ -10,15 +10,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
 
 
 // Rout for option
@@ -32,14 +32,11 @@ Route::get('/fuel-or-ev', function () {
 Route::post('/find-stations', [FuelStationController::class, 'findStations'])->name('findStations');
 
 //stations
-//Route::post('/find-fuel-stations', [FuelStationController::class, 'findStations'])->name('fuel_station.index');
 Route::get('/find-fuel-stations', [FuelStationController::class, 'findStations'])->name('fuel_station.index');
 Route::get('/find-ev-stations', [EvStationController::class, 'findStations'])->name('ev_station.index');
 
 
-// //Slot-booking
-// Route::get('/book-slot/{station_id}', [BookingController::class, 'showBookingForm'])->name('slot.book');
-// Route::post('/book-slot/{station_id}', [BookingController::class, 'storeBooking'])->name('slot.store');
+
 
 use App\Http\Controllers\SlotBookingController;
 
@@ -56,12 +53,7 @@ Route::get('/payment/{id}', [PaymentController::class, 'showPayment'])->name('pa
 Route::post('/payment/{id}', [PaymentController::class, 'confirmPayment'])->name('payment.confirm');
 
 
-// ..
 
-// // Home route to return to the main page
-// Route::get('/home', function () {
-//     return view('option');  // Adjust 'home' to your actual home blade file name
-// })->name('home');
 
 
 
