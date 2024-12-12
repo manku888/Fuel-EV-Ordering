@@ -24,8 +24,7 @@ class SlotBookingController extends Controller
         $bookings = Booking::with(['car', 'slot.station'])
         ->whereHas('slot', function ($query) use ($stationId) {
         $query->where('station_id', $stationId);
-       })
-       ->get();
+       })->paginate(6)->appends(request()->query());
 
         return view('slot.booking', compact('stationId', 'cars', 'station','bookings'));
     }
@@ -72,7 +71,7 @@ class SlotBookingController extends Controller
 
     public function bookingDetails()
     {
-        $bookings = Booking::with(['car', 'slot'])->latest()->get();
+        $bookings = Booking::with(['car', 'slot'])->latest()->paginate(12)->appends(request()->query());
         return view('slot.details', compact('bookings'));
 
     }

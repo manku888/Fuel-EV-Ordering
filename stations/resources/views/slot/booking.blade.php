@@ -8,7 +8,8 @@
 
 
 </head>
-<body>
+<body class="bg-[url(/images/b2.png)]" >
+<!-- class="bg-[url(/images/fuel.jpg)] bg-center bg-cover " -->
 <br class="bg-gray-100 min-h-screen flex  justify-center ">
 
     <!-- Success/Error Popup -->
@@ -114,10 +115,35 @@
                     <td class="border border-gray-300 px-4 py-2 text-green-600">
                         {{ $booking->status == 'pending' ? 'Pending' : 'Completed' }}
                     </td>
+
+                    <!-- <td class="border border-gray-300 px-4 py-2">{{$booking->status=='pending' ? 'Pending' : $booking->slot->status}}</td> -->
+
+
+                    <!-- more status -->
+                    <!-- <td class="@class([
+                             'border border-gray-300 px-4 py-2',
+                             'text-yellow-500' => $booking->status == 'pending',
+                             'text-green-500' => $booking->status == 'confirmed',
+                             'text-red-500' => $booking->status == 'cancelled',
+                             'text-blue-500' => $booking->status == 'completed',
+                             'text-orange-500' => $booking->status == 'failed',
+                             'text-gray-500' => $booking->status == 'expired',
+                             'text-indigo-500' => $booking->status == 'in_progress',
+                         ])">
+                             {{ ucfirst($booking->status) }}
+                         </td> -->
+
+
+
+
                 </tr>
             @endforeach
         </tbody>
     </table>
+    <!-- Pagination Links -->
+    <div class="mt-4">
+                    {{$bookings->links()}}
+                </div>
 </div>
 
 
