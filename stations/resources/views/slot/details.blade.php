@@ -8,7 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gray-100 min-h-screen p-6">
+<body class="bg-gray-100 min-h-screen p-6 bg-[url(/images/b1.jpg)]">
     <div class=" mx-auto  p-6 rounded-lg shadow-lg">
         <h2 class="text-2xl font-bold text-center text-gray-700">Booking Details</h2>
 
@@ -55,6 +55,11 @@
                 @endforeach
             </tbody>
         </table>
+
+        <!-- paginatio link-->
+         <div class="mt-4">
+            {{$bookings->links()}}
+         </div>
     </div>
 
 
